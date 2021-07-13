@@ -19,4 +19,12 @@ function getLastInspector(insp2Check)
 	return null;
 	}
 
-function compareInspDateDesc(a,b) { return (a.getScheduledDate().getEpochMilliseconds() < b.getScheduledDate().getEpochMilliseconds()); }
+	function compareInspDateDesc(a, b) {
+		if (a.getScheduledDate() == null) {
+			return 1;
+		}
+		if (b.getScheduledDate() == null) {
+			return -1;
+		}
+		return b.getScheduledDate().getEpochMilliseconds() - a.getScheduledDate().getEpochMilliseconds()
+	};
